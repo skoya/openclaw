@@ -419,9 +419,8 @@ export async function runEmbeddedAttempt(
       const sessionBoundary = prepareEmbeddedAttemptSessionBoundary({
         activeSession,
         attempt: params,
-        getCurrentUserTranscriptContext: preparedSessionManager.getLatestUserMessageContext,
         isRawModelRun,
-        preparedUserTurnMessage,
+        ...preparedSessionManager.userMessageBoundary,
         sessionManager,
         setActiveSessionSystemPrompt,
       });
